@@ -9,6 +9,8 @@
 #include <string>
 #include <iomanip>
 #include "ListTests.h"
+#include "EngineTests.h"
+#include "SpotTests.h"
 
 void START_TESTS();
 void TEST ( bool testingFun, std::string funName );
