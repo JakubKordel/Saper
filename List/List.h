@@ -9,7 +9,7 @@
 
 template <class Type>
 class List {
-
+private:
     struct Element {
         Type object;
         Element *next;

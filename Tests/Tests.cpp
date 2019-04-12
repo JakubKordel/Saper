@@ -12,15 +12,18 @@ void START_TESTS(){
     TEST( listConstructorTest(), "List<Type>::List()");
     TEST( listAddElementTest(), "void List<Type>::addElement(const Type &obj)");
     TEST( listDeleteElementTest(), "void deleteElement(std::size_t index)");
-    TEST( listOperatorPlusTest(), "bool listOperatorPlusTest();");
+    TEST( listOperatorPlusTest(), "bool listOperatorPlusTest()");
     //Spot
-    TEST( SpotConstructorTest(), "Spot::Spot()" );
-    TEST( SpotSetTypeTest(), "Spot::setType");
-    TEST( SpotSetVisibilityTest(), "Spot::setVisibility" );
-    TEST( SpotSetNeighborsTest(), "Spot::setNeighbors" );
-    TEST( SpotGetTypeTest(), "Spot::getType");
-    TEST( SpotGetVisibilityTest(), "Spot::getVisibility" );
-    TEST( SpotBombsAroundTest(), "Spot::bombsAround" );
+    TEST( spotConstructorTest(), "Spot::Spot()" );
+    TEST( spotSetTypeTest(), "Spot::setType()");
+    TEST( spotSetVisibilityTest(), "Spot::setVisibility()" );
+    TEST( spotGetTypeTest(), "Spot::getType()");
+    TEST( spotGetVisibilityTest(), "Spot::getVisibility()" );
+    TEST( spotGetBombsAroundTest(), "Spot::getBombsAround()" );
+    //Field
+    TEST( fieldConstructorTest(), "Field::Field()" );
+    TEST( fieldInitializeTest(), "Field::initialize()");
+    TEST( fieldGetSpotTest(), "Field::getSpot()");
 }
 
 void TEST( bool testingFun, const std::string funName ){

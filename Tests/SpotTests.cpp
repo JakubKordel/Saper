@@ -4,15 +4,15 @@
 
 #include "SpotTests.h"
 
-bool SpotConstructorTest(){
+bool spotConstructorTest(){
     bool flag = true;
     Spot spot;
-    if ( spot.getType() != Spot::VALUE || spot.getVisibility() != Spot::HIDDEN || spot.bombsAround() )
+    if ( spot.getType() != Spot::VALUE || spot.getVisibility() != Spot::HIDDEN || spot.getBombsAround() )
         flag = false;
     return flag;
 }
 
-bool SpotSetTypeTest(){
+bool spotSetTypeTest(){
     bool flag = true;
     Spot spot1;
     Spot spot2;
@@ -24,7 +24,7 @@ bool SpotSetTypeTest(){
     return flag;
 }
 
-bool SpotSetVisibilityTest(){
+bool spotSetVisibilityTest(){
     bool flag = true;
     Spot spot1;
     Spot spot2;
@@ -39,21 +39,7 @@ bool SpotSetVisibilityTest(){
     return flag;
 }
 
-bool SpotSetNeighborsTest(){
-    bool flag = true;
-    Spot middle;
-    Spot spot[8];
-    for ( int i = 4; i < 8 ; ++i ){
-        spot[i].setType( Spot::BOMB );
-    }
-    spot[1].setType( Spot::BOMB) ;
-    middle.setNeighbors( &spot[0], &spot[1], &spot[2], &spot[3], &spot[4], &spot[5], &spot[6], &spot[7] );
-    if ( middle.bombsAround() != 5 )
-        flag = false;
-    return flag;
-}
-
-bool SpotGetTypeTest(){
+bool spotGetTypeTest(){
     bool flag = true;
     Spot spot1;
     Spot spot2;
@@ -66,7 +52,7 @@ bool SpotGetTypeTest(){
     return flag;
 }
 
-bool SpotGetVisibilityTest(){
+bool spotGetVisibilityTest(){
     bool flag = true;
     Spot spot1;
     Spot spot2;
@@ -86,15 +72,10 @@ bool SpotGetVisibilityTest(){
 
 }
 
-bool SpotBombsAroundTest(){
+bool spotGetBombsAroundTest(){
     bool flag = true;
-    Spot middle;
-    Spot spot[8];
-    for ( int i = 2; i < 6 ; ++i ){
-        spot[i].setType( Spot::BOMB );
-    }
-    middle.setNeighbors( &spot[0], &spot[1], &spot[2], &spot[3], &spot[4], &spot[5], &spot[6], &spot[7] );
-    if ( middle.bombsAround() != 4 )
+    Spot spot;
+    if ( spot.getBombsAround() != 0 )
         flag = false;
     return flag;
 }

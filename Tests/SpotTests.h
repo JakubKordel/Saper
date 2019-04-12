@@ -7,12 +7,11 @@
 
 #include "../Engine/Spot.h"
 
-bool SpotConstructorTest();
-bool SpotSetTypeTest();
-bool SpotSetVisibilityTest();
-bool SpotSetNeighborsTest();
-bool SpotGetTypeTest();
-bool SpotGetVisibilityTest();
-bool SpotBombsAroundTest();
+bool spotConstructorTest();
+bool spotSetTypeTest();
+bool spotSetVisibilityTest();
+bool spotGetTypeTest();
+bool spotGetVisibilityTest();
+bool spotGetBombsAroundTest();
 
 #endif //SAPER_SPOTTESTS_H

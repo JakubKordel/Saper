@@ -14,22 +14,16 @@ public:
 private:
     Type type;
     Visibility visibility;
-
-    Spot * neighbour[8]; // clockwise order starting from up-left corner
-    //  0 1 2  //
-    //  7 T 3  // T - this one spot
-    //  6 5 4  //
-
     int bombs;
 
 public:
     Spot();
     void setType( Type =  VALUE );
     void setVisibility( Visibility = HIDDEN );
-    void setNeighbors( Spot * ul, Spot * u, Spot * ur, Spot * r, Spot * dr, Spot * d, Spot * dl, Spot * l ); //clockwise order, ul - up/left corner
+    void setBombsAround( int num = 0 );
     Type getType();
     Visibility getVisibility();
-    int bombsAround();
+    int getBombsAround();
 };
 
 
