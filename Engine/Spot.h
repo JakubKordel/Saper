@@ -18,7 +18,7 @@ private:
 
 public:
     Spot();
-    void setType( Type =  VALUE );
+    void setType( Type = VALUE );
     void setVisibility( Visibility = HIDDEN );
     void setBombsAround( int num = 0 );
     Type getType();

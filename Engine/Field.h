@@ -16,11 +16,10 @@ class Field {
     void initialize();
 
 public:
-    Field( const int collumns = 10, const int rows = 10);
+    Field( int collumns = 10, int rows = 10);
     Spot & getSpot( int x, int y );
     int getCollumnsNum();
     int getRowsNum();
 };
-
 
 #endif //SAPER_FIELD_H

@@ -7,6 +7,14 @@
 
 #include "../Engine/Engine.h"
 
-
+bool engineConstructorTest();
+bool engineSetUpMapTest();
+bool engineBombsNumTest();
+bool engineFlagsNumTest();
+bool engineStateValTest();
+bool engineUnhideTest();
+bool engineSwitchSymbolTest();
+bool engineVisibilityTest();
+bool engineTypeTest();
 
 #endif //SAPER_ENGINETESTS_H
