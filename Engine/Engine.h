@@ -6,7 +6,6 @@
 #define SAPER_ENGINE_H
 
 #include "Field.h"
-#include <iostream>
 #include <cstdlib>
 #include <ctime>
 
@@ -22,8 +21,8 @@ private:
     int widthX;
     int heightY;
     int hiddenValues;
-    void setUpMap( int n ); // x, y wspolrzedne pierwszego punktu wybranegp przez uzytkownika
-    void setUpBombs( int n ); // n - liczba pol wokol pierwszego punktu wybranego przez uzytkownika
+    void setUpMap( int n, int x, int y ); // x, y wspolrzedne pierwszego punktu wybranegp przez uzytkownika
+    void setUpBombs( int n, int x, int y ); // n - liczba pol wokol pierwszego punktu wybranego przez uzytkownika
     void setUpValues();
     int countBombsAround( int x, int y );
 

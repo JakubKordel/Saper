@@ -18,12 +18,12 @@ Engine::~Engine(){
     delete field;
 }
 
-void Engine::setUpMap( int n ){
-    setUpBombs( n );
+void Engine::setUpMap( int n, int x, int y ){
+    setUpBombs( n, x, y );
     setUpValues();
 }
 
-void Engine::setUpBombs( int n ){
+void Engine::setUpBombs( int n, int x, int y ){
     srand( time( NULL ) );
     int places = widthX*heightY - ( 1 + n ); //pozostale miejsca na bomby( bez punktu startowego i punktow wokol niego
     int notPlacedBombs = bombs;
@@ -36,7 +36,7 @@ void Engine::setUpBombs( int n ){
         for ( int i = 0; i< heightY; ++i ){
             for ( int j = 0; j < widthX ; ++j ) {
                 Spot & spot = field ->getSpot( j, i );
-                if ( spot.getType() != Spot::BOMB && spot.getVisibility() != Spot::VISIBLE ){
+                if ( spot.getType() != Spot::BOMB && !( j >= x - 1 && j <= x + 1 && i >= y - 1 && i <= y + 1 ) ){
                     if ( randomNum )
                         --randomNum;
                     else {
@@ -102,7 +102,7 @@ Engine::State Engine::stateVal(){
     return state;
 }
 
-void Engine::unhide( int x, int y){
+void Engine::unhide( int x, int y){	
     bool up = false;
     bool down = false;
     bool left = false;
@@ -114,22 +114,15 @@ void Engine::unhide( int x, int y){
     int n = 8;
 
     Spot & spot = field->getSpot( x, y );
-    spot.setVisibility( Spot::VISIBLE );
+    if ( spot.getVisibility() == Spot::FLAG ) ++flags;
     if ( state == BEFORE ){
+	spot.setVisibility( Spot::VISIBLE );
         int sum = (int)up + (int)down + (int)left + (int)right;
         if ( sum == 3 ) n = 5;
         if ( sum == 2 ) n = 3;
         --hiddenValues;
         state = STARTED;
-        if ( up && left ) field->getSpot( x - 1, y + 1 ).setVisibility( Spot::VISIBLE );
-        if ( up ) field->getSpot( x, y + 1).setVisibility( Spot::VISIBLE );
-        if ( up && right ) field->getSpot( x + 1, y + 1).setVisibility( Spot::VISIBLE );
-        if ( right ) field->getSpot( x + 1, y ).setVisibility( Spot::VISIBLE );
-        if ( down && right ) field->getSpot( x + 1, y - 1 ).setVisibility( Spot::VISIBLE );
-        if ( down ) field->getSpot( x, y - 1).setVisibility( Spot::VISIBLE );
-        if ( down && left ) field->getSpot( x - 1, y - 1 ).setVisibility( Spot::VISIBLE );
-        if ( left ) field->getSpot( x - 1, y ).setVisibility( Spot::VISIBLE );
-        setUpMap( n );
+        setUpMap( n, x, y );
         if ( up && left ) unhide( x - 1, y + 1 );
         if ( up ) unhide( x, y + 1);
         if ( up && right ) unhide( x + 1, y + 1);
@@ -138,11 +131,11 @@ void Engine::unhide( int x, int y){
         if ( down ) unhide( x, y - 1);
         if ( down && left ) unhide( x - 1, y - 1 );
         if ( left ) unhide( x - 1, y );
-
-    } else {
-        if ( spot.getType() == Spot::BOMB )
+     }else if ( spot.getType() == Spot::BOMB ){
             state = LOSE;
-        else {
+	    spot.setVisibility(Spot::VISIBLE);
+     }else if ( spot.getVisibility() != Spot::VISIBLE ) {
+	    spot.setVisibility( Spot::VISIBLE );
             --hiddenValues;
             if ( hiddenValues == 0 ) state = WIN;
             else if ( value( x, y ) == 0 ) {
@@ -163,8 +156,7 @@ void Engine::unhide( int x, int y){
                 if ( left )
                     if ( type( x - 1, y    ) == Spot::VALUE && visibility( x - 1, y     ) != Spot::VISIBLE) unhide( x - 1, y     );
             }
-        }
-    }
+     }
 }
 
 void Engine::switchSymbol( int x, int y ) {

@@ -53,7 +53,6 @@ bool engineStateValTest() {
 }
 
 bool engineUnhideTest() {
-    bool flag = true;
     Engine game( 12, 10, 50 );
     game.unhide( 6, 5 );
     return  game.visibility( 6, 5 ) == Spot::VISIBLE ;

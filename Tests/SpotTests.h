@@ -6,9 +6,6 @@
 #define SAPER_SPOTTESTS_H
 
 #include "../Engine/Spot.h"
-#include <iostream>
-#include <string>
-#include <iomanip>
 
 bool spotConstructorTest();
 bool spotSetTypeTest();

@@ -7,17 +7,19 @@
 
 #include <iostream>
 #include "../Engine/Engine.h"
+#include "Pointer.h"
 
 class Map {
 
     Engine & engine;
+    Pointer & pointer;
     int width;
     int height;
 
-
 public:
-    Map ( Engine & Engine );
-    void draw( int px, int py ); // px, py wspolrzedne pointera gracza
+    Map ( Engine & Engine, Pointer & Pointer );
+    void draw(); // px, py wspolrzedne pointera gracza
+    void clearScreen();
 };
 
 #endif //SAPER_MAP_H

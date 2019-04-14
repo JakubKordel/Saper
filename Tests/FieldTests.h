@@ -5,9 +5,6 @@
 #ifndef SAPER_FIELDTESTS_H
 #define SAPER_FIELDTESTS_H
 
-#include <iostream>
-#include <string>
-#include <iomanip>
 #include "../Engine/Field.h"
 
 bool fieldConstructorTest();

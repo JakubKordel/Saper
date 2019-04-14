@@ -1,20 +1,10 @@
 CC=gcc
-CFLAGS=-Wall -pedantic
+CFLAGS=-Wall -pedantic -std=c++11
 
-release: saper
-	./saper
+compile:
+	g++ $(CFLAGS) main.cpp Tests/Tests.cpp Tests/ListTests.cpp Engine/Engine.cpp Tests/EngineTests.cpp Engine/Spot.cpp Engine/Field.cpp Tests/FieldTests.cpp PlayerInteraction/Map.cpp Tests/SpotTests.cpp PlayerInteraction/Pointer.cpp PlayerInteraction/Input.cpp -o Saper
 
-saper: all main.o
-	$(CC) -o saper main.o Tests/Tests.o Tests/ListTests.o Engine/Engine.o Tests/EngineTests.o Engine/Spot.o Tests/SpotTests.o Engine/Field.o Tests/FieldTests.o PlayerInteraction/Map.o
-all:
-	+$(MAKE) -C Engine
-	+$(MAKE) -C PlayerInteraction
-	+$(MAKE) -C Tests
 
-main.o: main.cpp
-	$(CC) -c $(CFLAGS) main.cpp
 
-clean:
-	rm -rf *.o saper 
-	 
+
 
