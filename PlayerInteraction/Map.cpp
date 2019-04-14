@@ -11,6 +11,7 @@ Map::Map ( Engine & Engine, Pointer & Pointer ) : engine(Engine), pointer( Point
 
 void Map::draw(){
     std::cout << "Flags: " << engine.flagsNum() << std::endl << std::endl;
+    std::cout << "klawisz l - odkrywa pole, klawisz p - zmienia pomiedzy F (flaga) -> ? -> H (zakryte) " << std::endl << std::endl ;
     for ( int i = 0; i < height ; ++i ){
         for ( int j = 0; j < width ; ++j ){
             if ( height - 1 - i == pointer.getY() ) {
@@ -41,7 +42,7 @@ void Map::draw(){
     }
 }
 
-void Map::clearScreen(){
+void clearScreen(){
     printf("\033[2J");
     printf("\033[0;0f");
 }

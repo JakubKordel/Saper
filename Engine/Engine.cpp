@@ -132,8 +132,8 @@ void Engine::unhide( int x, int y){
         if ( down && left ) unhide( x - 1, y - 1 );
         if ( left ) unhide( x - 1, y );
      }else if ( spot.getType() == Spot::BOMB ){
-            state = LOSE;
-	    spot.setVisibility(Spot::VISIBLE);
+	    unhideAll();
+	    state = LOSE;
      }else if ( spot.getVisibility() != Spot::VISIBLE ) {
 	    spot.setVisibility( Spot::VISIBLE );
             --hiddenValues;
@@ -177,6 +177,14 @@ void Engine::switchSymbol( int x, int y ) {
                 break;
         }
     }
+}
+
+void Engine::unhideAll(){
+	for ( int i = 0; i< heightY; ++i ){
+            for ( int j = 0; j < widthX ; ++j ) {
+                field ->getSpot( j, i ).setVisibility( Spot::VISIBLE );
+            }
+        }
 }
 
 Spot::Visibility Engine::visibility( int x, int y ) {

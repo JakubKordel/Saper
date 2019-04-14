@@ -24,6 +24,7 @@ private:
     void setUpMap( int n, int x, int y ); // x, y wspolrzedne pierwszego punktu wybranegp przez uzytkownika
     void setUpBombs( int n, int x, int y ); // n - liczba pol wokol pierwszego punktu wybranego przez uzytkownika
     void setUpValues();
+    void unhideAll();
     int countBombsAround( int x, int y );
 
 public:
