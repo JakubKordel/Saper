@@ -5,7 +5,10 @@
 #ifndef SAPER_LISTTESTS_H
 #define SAPER_LISTTESTS_H
 
+#include <iostream>
 #include "../List/List.h"
+#include <string>
+#include <iomanip>
 
 bool listConstructorTest();
 bool listAddElementTest();

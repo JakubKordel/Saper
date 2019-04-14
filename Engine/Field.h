@@ -1,10 +1,11 @@
 //
-// Created by jakub on 30.03.19.
+// Created by Jakub Kordel on 30.03.19.
 //
 
 #ifndef SAPER_FIELD_H
 #define SAPER_FIELD_H
 
+#include <iostream>
 #include "../List/List.h"
 #include "Spot.h"
 

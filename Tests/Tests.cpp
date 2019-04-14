@@ -29,7 +29,7 @@ void START_TESTS(){
     TEST( fieldGetSpotTest(), "Field::getSpot()");
 
     //Engine
-    TEST( engineConstructorTest(), "Engine::Engine( int width, int high, double risk )");
+    TEST( engineConstructorTest(), "Engine::Engine( int width, int height, double risk )");
     TEST( engineSetUpMapTest(), "void Engine::setUpMap( int startX, int startY )");
     TEST( engineBombsNumTest(), "int Engine::bombsNum()");
     TEST( engineFlagsNumTest(), "int Engine::flagsNum()");

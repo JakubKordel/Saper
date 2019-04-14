@@ -4,12 +4,12 @@
 
 #include "Engine.h"
 
-Engine::Engine( int width, int high, double risk ){
-    highY = high;
+Engine::Engine( int width, int height, double risk ){
+    heightY = height;
     widthX = width;
-    field = new Field( width, high );
-    bombs = ( int )(risk/100 * width * high);
-    hiddenValues = widthX * highY - bombs;
+    field = new Field( widthX, heightY );
+    bombs = ( int )(risk/100 * widthX * heightY);
+    hiddenValues = widthX * heightY - bombs;
     flags = bombs;
     state = BEFORE;
 }
@@ -25,7 +25,7 @@ void Engine::setUpMap( int n ){
 
 void Engine::setUpBombs( int n ){
     srand( time( NULL ) );
-    int places = widthX*highY - ( 1 + n ); //pozostale miejsca na bomby( bez punktu startowego i punktow wokol niego
+    int places = widthX*heightY - ( 1 + n ); //pozostale miejsca na bomby( bez punktu startowego i punktow wokol niego
     int notPlacedBombs = bombs;
     int randomNum;
     bool isPlaced;
@@ -33,7 +33,7 @@ void Engine::setUpBombs( int n ){
         randomNum = rand()%places;
         --places;
         isPlaced = false;
-        for ( int i = 0; i< highY; ++i ){
+        for ( int i = 0; i< heightY; ++i ){
             for ( int j = 0; j < widthX ; ++j ) {
                 Spot & spot = field ->getSpot( j, i );
                 if ( spot.getType() != Spot::BOMB && spot.getVisibility() != Spot::VISIBLE ){
@@ -53,7 +53,7 @@ void Engine::setUpBombs( int n ){
 }
 
 void Engine::setUpValues(){
-    for ( int i = 0; i< highY; ++i ) {
+    for ( int i = 0; i< heightY; ++i ) {
         for (int j = 0; j < widthX; ++j) {
             Spot & spot = field ->getSpot( j, i );
             spot.setBombsAround( countBombsAround( j, i ) );
@@ -69,7 +69,7 @@ int Engine::countBombsAround( int x, int y ){
     if ( x > 0 ) left = true;
     if ( x + 1 < widthX ) right = true;
     if ( y > 0 ) down = true;
-    if ( y + 1 < highY ) up = true;
+    if ( y + 1 < heightY ) up = true;
     int counter = 0;
     if ( up && left )
         if ( type( x - 1, y + 1) == Spot::BOMB ) ++counter;
@@ -110,7 +110,7 @@ void Engine::unhide( int x, int y){
     if ( x > 0 ) left = true;
     if ( x + 1 < widthX ) right = true;
     if ( y > 0 ) down = true;
-    if ( y + 1 < highY ) up = true;
+    if ( y + 1 < heightY ) up = true;
     int n = 8;
 
     Spot & spot = field->getSpot( x, y );
@@ -197,4 +197,12 @@ Spot::Type Engine::type(int x, int y ) {
 
 int Engine::value( int x, int y ){
     return field ->getSpot( x, y ).getBombsAround();
+}
+
+int Engine::width(){
+    return field ->getCollumnsNum();
+}
+
+int Engine::height(){
+    return field ->getRowsNum();
 }
