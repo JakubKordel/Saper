@@ -4,6 +4,7 @@
 
 #include "Map.h"
 
+
 Map::Map ( Engine & Engine, Pointer & Pointer ) : engine(Engine), pointer( Pointer ){
     width = engine.width();
     height = engine.height();
@@ -11,7 +12,7 @@ Map::Map ( Engine & Engine, Pointer & Pointer ) : engine(Engine), pointer( Point
 
 void Map::draw(){
     std::cout << "Flags: " << engine.flagsNum() << std::endl << std::endl;
-    std::cout << "klawisz l - odkrywa pole, klawisz p - zmienia pomiedzy F (flaga) -> ? -> H (zakryte) " << std::endl << std::endl ;
+    std::cout << "klawisz l - odkrywa pole, klawisz p - zmienia pomiedzy X (flaga) -> ? -> O (zakryte) " << std::endl << std::endl ;
     for ( int i = 0; i < height ; ++i ){
         for ( int j = 0; j < width ; ++j ){
             if ( height - 1 - i == pointer.getY() ) {
@@ -29,9 +30,9 @@ void Map::draw(){
             }
             else {
                 if ( engine.visibility(j, height - 1 - i) == Spot::HIDDEN )
-                    std::cout << 'H';
+                    std::cout << 'O';
                 else if ( engine.visibility(j, height - 1 - i) == Spot::FLAG )
-                    std::cout << 'F';
+                    std::cout << 'X';
                 else
                     std::cout << '?';
             }

@@ -21,26 +21,26 @@ private:
     int widthX;
     int heightY;
     int hiddenValues;
-    void setUpMap( int n, int x, int y ); // x, y wspolrzedne pierwszego punktu wybranegp przez uzytkownika
-    void setUpBombs( int n, int x, int y ); // n - liczba pol wokol pierwszego punktu wybranego przez uzytkownika
+    void setUpMap( const int & n, const int & x, const int & y ); // x, y wspolrzedne pierwszego punktu wybranegp przez uzytkownika
+    void setUpBombs( const int & n, const int & x, const int & y ); // n - liczba pol wokol pierwszego punktu wybranego przez uzytkownika
     void setUpValues();
     void unhideAll();
-    int countBombsAround( int x, int y );
+    int countBombsAround( const int & x, const int & y );
 
 public:
-    Engine( int width, int height, double risk ); // risk - wartosc 0-100, procent bomb na mapie
+    Engine( const int & width, const int & height, const double & risk ); // risk - wartosc 0-100, procent bomb na mapie
     // mala mapa ( mniejsza od 5x5 ) lub wysoka wartosc risk (wieksza od 70) moga spowodowac niewlasciwe zachowanie programu
 
     ~Engine();
 
     //Dla funkcji wczytujacych poczynanie gracza
-    void unhide( int x, int y); //odkrywa pole wybrane przez gracza
-    void switchSymbol( int x, int y ); // zakryte -> flaga -> znak ?
+    void unhide( const int & x, const int & y); //odkrywa pole wybrane przez gracza
+    void switchSymbol( const int & x, const int & y ); // zakryte -> flaga -> znak ?
 
     // Dla funkcji wyswietlajacych mape
-    Spot::Visibility visibility(int x, int y ); // zwraca wartosc pola: 0 - zakryte, 1 - odkryte, 2 - flaga, 3 - znak zapytania 
-    Spot::Type type(int x, int y ); // zwraca: 0 - Bomba, 1 - pole bez bomby, z wartoscia
-    int value( int x, int y );  //zwraca liczbe bomb dookola pola, 0-8
+    Spot::Visibility visibility(const int & x, const int & y ); // zwraca wartosc pola: 0 - zakryte, 1 - odkryte, 2 - flaga, 3 - znak zapytania 
+    Spot::Type type(const int & x, const int & y ); // zwraca: 0 - Bomba, 1 - pole bez bomby, z wartoscia
+    int value( const int & x, const int & y );  //zwraca liczbe bomb dookola pola, 0-8
     int width();
     int height();
     //Informacje dla Gracza o stanie gry

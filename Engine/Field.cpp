@@ -15,13 +15,13 @@ void Field::initialize(){
     }
 }
 
-Field::Field( int collumns, int rows ){
+Field::Field( const int & collumns, const int & rows ){
     collumnsNum = collumns;
     rowsNum = rows;
     initialize();
 }
 
-Spot & Field::getSpot( int x, int y ){
+Spot & Field::getSpot( const int & x, const int & y ){
     return rows[y][x];
 }
 

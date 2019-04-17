@@ -16,8 +16,8 @@ class Field {
     void initialize();
 
 public:
-    Field( int collumns = 10, int rows = 10);
-    Spot & getSpot( int x, int y );
+    Field( const int & collumns = 10, const int & rows = 10);
+    Spot & getSpot( const int & x, const int & y );
     int getCollumnsNum();
     int getRowsNum();
 };

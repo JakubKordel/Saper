@@ -39,17 +39,17 @@ int main() {
 			if ( y == 0 ){
 				width = 7;
 				height = 7;
-				risk = 18;
+				risk = 16;
 			}
 			else if ( y == 1 ){
 				width = 14;
 				height = 10;
-				risk = 20;
+				risk = 18;
 			}	
 			else if ( y == 2 ){
 				width = 20;
 				height = 15;
-				risk = 22;
+				risk = 20;
 			}				
 			Engine engine( width, height, risk );
     			Pointer pointer( width, height );

@@ -10,15 +10,15 @@ Spot::Spot(){
     setBombsAround();
 }
 
-void Spot::setType( Type t ){
+void Spot::setType( const Type & t ){
     type = t;
 }
 
-void Spot::setVisibility( Visibility vis ){
+void Spot::setVisibility( const Visibility & vis ){
     visibility = vis;
 }
 
-void Spot::setBombsAround( int num ){
+void Spot::setBombsAround( const int & num ){
     bombs = num;
 }
 

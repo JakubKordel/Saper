@@ -18,9 +18,9 @@ private:
 
 public:
     Spot();
-    void setType( Type = VALUE );
-    void setVisibility( Visibility = HIDDEN );
-    void setBombsAround( int num = 0 );
+    void setType( const Type & = VALUE );
+    void setVisibility( const Visibility & = HIDDEN );
+    void setBombsAround( const int & num = 0 );
     Type getType();
     Visibility getVisibility();
     int getBombsAround();

@@ -4,7 +4,7 @@
 
 #include "Engine.h"
 
-Engine::Engine( int width, int height, double risk ){
+Engine::Engine( const int & width, const int & height, const double & risk ){
     heightY = height;
     widthX = width;
     field = new Field( widthX, heightY );
@@ -18,12 +18,12 @@ Engine::~Engine(){
     delete field;
 }
 
-void Engine::setUpMap( int n, int x, int y ){
+void Engine::setUpMap( const int & n, const int & x, const int & y ){
     setUpBombs( n, x, y );
     setUpValues();
 }
 
-void Engine::setUpBombs( int n, int x, int y ){
+void Engine::setUpBombs( const int & n, const int & x, const int & y ){
     srand( time( NULL ) );
     int places = widthX*heightY - ( 1 + n ); //pozostale miejsca na bomby( bez punktu startowego i punktow wokol niego
     int notPlacedBombs = bombs;
@@ -61,7 +61,7 @@ void Engine::setUpValues(){
     }
 }
 
-int Engine::countBombsAround( int x, int y ){
+int Engine::countBombsAround( const int & x, const int & y ){
     bool up = false;
     bool down = false;
     bool left = false;
@@ -102,7 +102,7 @@ Engine::State Engine::stateVal(){
     return state;
 }
 
-void Engine::unhide( int x, int y){	
+void Engine::unhide( const int & x, const int & y){	
     bool up = false;
     bool down = false;
     bool left = false;
@@ -159,7 +159,7 @@ void Engine::unhide( int x, int y){
      }
 }
 
-void Engine::switchSymbol( int x, int y ) {
+void Engine::switchSymbol( const int & x, const int & y ) {
     Spot & spot = field->getSpot( x, y );
     Spot::Visibility current = spot.getVisibility();
     if ( current != Spot::VISIBLE ){
@@ -187,15 +187,15 @@ void Engine::unhideAll(){
         }
 }
 
-Spot::Visibility Engine::visibility( int x, int y ) {
+Spot::Visibility Engine::visibility( const int & x, const int & y ) {
    return field ->getSpot( x, y ).getVisibility();
 }
 
-Spot::Type Engine::type(int x, int y ) {
+Spot::Type Engine::type(const int & x, const int & y ) {
     return field ->getSpot( x, y ).getType();
 }
 
-int Engine::value( int x, int y ){
+int Engine::value( const int & x, const int & y ){
     return field ->getSpot( x, y ).getBombsAround();
 }
 
