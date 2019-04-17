@@ -139,22 +139,14 @@ void Engine::unhide( const int & x, const int & y){
             --hiddenValues;
             if ( hiddenValues == 0 ) state = WIN;
             else if ( value( x, y ) == 0 ) {
-                if ( up && left )
-                    if ( type( x - 1, y + 1) == Spot::VALUE && visibility( x - 1, y + 1 ) != Spot::VISIBLE) unhide( x - 1, y + 1 );
-                if ( up )
-                    if ( type( x    , y + 1) == Spot::VALUE && visibility( x    , y + 1 ) != Spot::VISIBLE) unhide( x    , y + 1 );
-                if ( up && right )
-                    if ( type( x + 1, y + 1) == Spot::VALUE && visibility( x + 1, y + 1 ) != Spot::VISIBLE) unhide( x + 1, y + 1 );
-                if ( right )
-                    if ( type( x + 1, y    ) == Spot::VALUE && visibility( x + 1, y     ) != Spot::VISIBLE) unhide( x + 1, y     );
-                if ( down && right )
-                    if ( type( x + 1, y - 1) == Spot::VALUE && visibility( x + 1, y - 1 ) != Spot::VISIBLE) unhide( x + 1, y - 1 );
-                if ( down )
-                    if ( type( x    , y - 1) == Spot::VALUE && visibility( x    , y - 1 ) != Spot::VISIBLE) unhide( x    , y - 1 );
-                if ( down && left )
-                    if ( type( x - 1, y - 1) == Spot::VALUE && visibility( x - 1, y - 1 ) != Spot::VISIBLE) unhide( x - 1, y - 1 );
-                if ( left )
-                    if ( type( x - 1, y    ) == Spot::VALUE && visibility( x - 1, y     ) != Spot::VISIBLE) unhide( x - 1, y     );
+                    if ( up && left && type( x - 1, y + 1) == Spot::VALUE && visibility( x - 1, y + 1 ) != Spot::VISIBLE) unhide( x - 1, y + 1 );
+                    if ( up && type( x    , y + 1) == Spot::VALUE && visibility( x    , y + 1 ) != Spot::VISIBLE) unhide( x    , y + 1 );
+                    if ( up && right && type( x + 1, y + 1) == Spot::VALUE && visibility( x + 1, y + 1 ) != Spot::VISIBLE) unhide( x + 1, y + 1 );             
+                    if ( right && type( x + 1, y    ) == Spot::VALUE && visibility( x + 1, y     ) != Spot::VISIBLE) unhide( x + 1, y     );
+                    if ( down && right && type( x + 1, y - 1) == Spot::VALUE && visibility( x + 1, y - 1 ) != Spot::VISIBLE) unhide( x + 1, y - 1 );              
+                    if ( down && type( x    , y - 1) == Spot::VALUE && visibility( x    , y - 1 ) != Spot::VISIBLE) unhide( x    , y - 1 );          
+                    if ( down && left && type( x - 1, y - 1) == Spot::VALUE && visibility( x - 1, y - 1 ) != Spot::VISIBLE) unhide( x - 1, y - 1 );     
+                    if ( left && type( x - 1, y    ) == Spot::VALUE && visibility( x - 1, y     ) != Spot::VISIBLE) unhide( x - 1, y     );
             }
      }
 }

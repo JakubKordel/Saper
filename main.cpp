@@ -4,6 +4,8 @@
 #include "PlayerInteraction/Map.h"
 #include "PlayerInteraction/Input.h"
 #include "PlayerInteraction/Pointer.h"
+#include "AIPlayer/AIPlayer.h"
+#include <unistd.h>
 
 char getch();
 void clearScreen();
@@ -54,11 +56,14 @@ int main() {
 			Engine engine( width, height, risk );
     			Pointer pointer( width, height );
     			Map map( engine, pointer );
-    			Input input( engine, pointer );
+    			//Input input( engine, pointer );
+    			AIPlayer player ( engine );
     			while ( engine.stateVal() != Engine::WIN && engine.stateVal() != Engine::LOSE ){
-				clearScreen();
+				    clearScreen();
         			map.draw();
-        			input.action();
+				//input.action();
+        			player.move();
+                    		usleep(200000);
     			}
 			clearScreen();
         		map.draw();
