@@ -20,5 +20,5 @@ public:
     Map ( Engine & Engine, Pointer & Pointer );
     void draw(); // px, py wspolrzedne pointera gracza
 };
-
+    void clearScreen();
 #endif //SAPER_MAP_H
