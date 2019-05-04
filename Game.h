@@ -8,6 +8,7 @@
 
 void Game ( const int & width, const int & height, const double & risk );
 void AIGame( const int & width, const int & height, const double & risk );
+void AIGameTest (const int & width, const int & height, const double & risk );
 
 void clearBuf();
 void clearScreen();

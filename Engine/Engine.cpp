@@ -24,7 +24,6 @@ void Engine::setUpMap( const int & n, const int & x, const int & y ){
 }
 
 void Engine::setUpBombs( const int & n, const int & x, const int & y ){
-    srand( time( NULL ) );
     int places = widthX*heightY - ( 1 + n ); //pozostale miejsca na bomby( bez punktu startowego i punktow wokol niego
     int notPlacedBombs = bombs;
     int randomNum;

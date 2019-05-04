@@ -41,6 +41,8 @@ void Settings::set( char a ){
 			gameType = NORMAL;
 		else if ( pGameType.getX() == 1 )
 			gameType = AI;
+		else if ( pGameType.getX() == 2 )
+			gameType = AITEST;
 	}
 
 	if ( a == 's' )

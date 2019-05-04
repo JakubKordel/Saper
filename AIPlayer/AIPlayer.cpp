@@ -46,7 +46,6 @@ bool AIPlayer::findBomb(){
 
 
 void AIPlayer::shoot(){
-    srand( time( NULL ) );
     int places = 0;
     for ( int i = 0; i < engine.height() ; ++i ){
         for ( int j = 0; j < engine.width() ; ++j ){

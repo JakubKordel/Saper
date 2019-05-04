@@ -10,7 +10,7 @@
 
 class Settings {
 public:
-	enum GameType { NORMAL, AI } ;
+	enum GameType { NORMAL, AI, AITEST } ;
 
 private:
 

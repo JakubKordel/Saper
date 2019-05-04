@@ -32,10 +32,30 @@ void AIGame( const int & width, const int & height, const double & risk ){
     	while ( engine.stateVal() != Engine::WIN && engine.stateVal() != Engine::LOSE ){
 		refresh( map );
         	player.move();
-                usleep(500000);
+                usleep(50000);
     	}
 	refresh( map );
 	resultInfo( engine );
+}
+
+void AIGameTest( const int & width, const int & height, const double & risk ){
+	int counter = 0;
+	int n = 1000;
+	int i = n;
+	while ( i-- ){
+		Engine engine( width, height, risk );
+    		AIPlayer player ( engine );
+    		while ( engine.stateVal() != Engine::WIN && engine.stateVal() != Engine::LOSE ){
+			clearScreen();
+			std::cout << "Rozgrywanie " << n << " gier . . . ";
+        		player.move();
+    		}
+		if ( engine.stateVal() == Engine::WIN )
+			++counter;
+	}
+	std::cout << std::endl << "Wygrane: " << counter << std::endl;
+	getchar(); 
+	clearBuf();
 }
 
 void refresh( Map & map ){

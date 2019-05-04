@@ -3,14 +3,18 @@
 #include "Game.h"
 #include "PlayerInteraction/Pointer.h"
 #include "PlayerInteraction/Settings.h"
+#include <ctime>
 
 char getch();
 
+
+
 int main() {
 	char a;
-	Pointer width(66, 0 ) , height( 41, 0 ), risk ( 201, 0 ), gameType ( 2, 0 ), setValue ( 0, 4 );
+	Pointer width(66, 0 ) , height( 41, 0 ), risk ( 201, 0 ), gameType ( 3, 0 ), setValue ( 0, 4 );
 	Settings settings( width, height, risk, gameType, setValue );
 	setValue.down();
+	srand( time( NULL ) );
 	while ( a != 'q' ) {
 		clearScreen();
 		std::cout << "----------------------------------" << std::endl ;
@@ -45,8 +49,10 @@ int main() {
 		else std::cout << "   ";
 		if ( settings.gameType == Settings::NORMAL )
 			std::cout << "Normalna" ;
-		else 
+		else if ( settings.gameType == Settings::AI )
 			std::cout << "Rozgrywka komputera"; 
+		else if ( settings.gameType == Settings::AITEST )
+			std::cout << "Test komputera"; 
 		if ( setValue.getY() == 0 )
 			std::cout << " > ";
 		std::cout << std::endl << std::endl ;
@@ -56,11 +62,15 @@ int main() {
 		settings.set( a );		
 		if ( a == 'g' && settings.gameType == Settings::NORMAL )
 			Game( settings.width, settings.height, settings.risk );
-		else if ( a == 'g' )
+		else if ( a == 'g' && settings.gameType == Settings::AI )
 			AIGame( settings.width, settings.height, settings.risk );
+		else if ( a == 'g' && settings.gameType == Settings::AITEST )
+			AIGameTest( settings.width, settings.height, settings.risk );
 		 
         }
    	return 0;
 }
+
+
 
 

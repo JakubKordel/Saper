@@ -31,8 +31,10 @@ void Map::draw(){
             else {
                 if ( engine.visibility(j, height - 1 - i) == Spot::HIDDEN )
                     std::cout << 'O';
-                else if ( engine.visibility(j, height - 1 - i) == Spot::FLAG )
-                    std::cout << 'X';
+                else if ( engine.visibility(j, height - 1 - i) == Spot::FLAG ){
+		    printf( "%c[%dm ",0x1B, 41 );
+		    printf( "%c[%dm", 0x1B , 0 );
+		}
                 else
                     std::cout << '?';
             }
