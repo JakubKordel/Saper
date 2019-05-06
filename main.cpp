@@ -1,8 +1,8 @@
 #include <iostream>
 #include <unistd.h>
 #include "Game.h"
-#include "PlayerInteraction/Pointer.h"
-#include "PlayerInteraction/Settings.h"
+#include "./PlayerInteraction/Pointer.h"
+#include "./PlayerInteraction/Settings.h"
 #include <ctime>
 
 char getch();
