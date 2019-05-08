@@ -13,7 +13,9 @@ void START_TESTS(){
     TEST( listConstructorTest(), "List<Type>::List()");
     TEST( listAddElementTest(), "void List<Type>::addElement(const Type &obj)");
     TEST( listDeleteElementTest(), "void deleteElement(std::size_t index)");
-    TEST( listOperatorPlusTest(), "bool listOperatorPlusTest()");
+    TEST( listOperatorPlusTest(), "List operator+(const List &list) const");
+    TEST( listOperatorAtribbutionTest(), "List & operator=(const List &list)");
+    TEST( listClearListTest(), "void clearList()" );
 
     //Spot
     TEST( spotConstructorTest(), "Spot::Spot()" );
@@ -29,7 +31,7 @@ void START_TESTS(){
     TEST( fieldGetSpotTest(), "Field::getSpot()");
 
     //Engine
-    TEST( engineConstructorTest(), "Engine::Engine( int width, int height, double risk )");
+    TEST( engineConstructorTest(), "Engine::Engine(int width, int height, double risk)");
     TEST( engineSetUpMapTest(), "void Engine::setUpMap( int startX, int startY )");
     TEST( engineBombsNumTest(), "int Engine::bombsNum()");
     TEST( engineFlagsNumTest(), "int Engine::flagsNum()");

@@ -11,6 +11,8 @@ bool listConstructorTest();
 bool listAddElementTest();
 bool listDeleteElementTest();
 bool listOperatorPlusTest();
+bool listOperatorAtribbutionTest();
+bool listClearListTest();
 
 
 #endif //SAPER_LISTTESTS_H

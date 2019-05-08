@@ -75,10 +75,10 @@ private:
     GroupRep * rep;
 
     void newRep(){
-        if ( rep ->count != 1) {
+        if ( rep ->count > 1) {
             --rep ->count;
             rep = new GroupRep(rep ->head);
-        }
+        } 
     }
 
 public:
@@ -93,7 +93,7 @@ public:
     }
 
     ~List() {
-        if ( rep ->count == 1)
+        if ( rep ->count < 2)
             delete rep;
         else
             --rep ->count;
@@ -137,25 +137,29 @@ public:
         return  rep ->getElement(index)->object;
     }
 
+    Type onlyRead( std::size_t index ){
+        return  rep ->getElement(index)->object;
+    }
+
     size_t numberOfElements() const {
         return rep ->numEl;
     }
 
     List & operator=(const List &list) {
-        clearList();
+	if ( rep ->count < 2 ){
+           delete rep;
+        }
+        else {
+           --rep ->count;
+        }
         rep = list.rep;
         ++rep ->count;
         return *this;
     }
 
     void clearList(){
-        if ( rep ->count == 1 ){
-            delete rep;
-        }
-        else {
-            --rep ->count;
-        }
-        rep = nullptr;
+        newRep();
+        rep ->clear();
     }
 };
 

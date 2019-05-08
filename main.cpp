@@ -4,10 +4,9 @@
 #include "./PlayerInteraction/Pointer.h"
 #include "./PlayerInteraction/Settings.h"
 #include <ctime>
+#include "./Tests/Tests.h"
 
 char getch();
-
-
 
 int main() {
 	char a;
