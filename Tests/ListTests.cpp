@@ -61,8 +61,8 @@ bool listOperatorPlusTest(){
     list2.addElement( 5 );
     list2.addElement( 6 );
     list1 = list1+list2;
-    if ( list1[0] != 3 || list1[1] != 4 || list1[2] != 5 || list1[3] != 6 || list1[4] != 1 || list1[5] != 2  ){
-        flag = false;
+    if ( list1[0] != 3 || list1[1] != 4 || list1[2] != 5 || list1[3] != 6 || list1[4] != 2 || list1[5] != 1  ){
+       flag = false;
     }
     if ( list1.numberOfElements() != 6 ) {
         flag = false;
@@ -81,7 +81,7 @@ bool listOperatorAtribbutionTest(){
     list2.addElement( 5 );
     list2.addElement( 6 );
     list1 = list2;
-    if ( list1.onlyRead(0) != 6 || list1.onlyRead(1) != 5 || list1.onlyRead(2) != 4 || list1.onlyRead(3) != 3 ){
+    if ( list1[0] != 6 || list1[1] != 5 || list1[2] != 4 || list1[3] != 3 ){
         flag = false;
     }
 
@@ -89,7 +89,7 @@ bool listOperatorAtribbutionTest(){
         flag = false;
     }
 
-    if ( list2.onlyRead(0) != 6 || list2.onlyRead(1) != 5 || list2.onlyRead(2) != 4 || list2.onlyRead(3) != 3 ){
+    if ( list2[0] != 6 || list2[1] != 5 || list2[2] != 4 || list2[3] != 3 ){
         flag = false;
     }
 

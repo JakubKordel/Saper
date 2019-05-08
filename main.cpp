@@ -9,6 +9,8 @@
 char getch();
 
 int main() {
+	START_TESTS();
+	getchar();
 	char a;
 	Pointer width(66, 0 ) , height( 41, 0 ), risk ( 201, 0 ), gameType ( 3, 0 ), setValue ( 0, 4 );
 	Settings settings( width, height, risk, gameType, setValue );

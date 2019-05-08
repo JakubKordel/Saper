@@ -6,12 +6,13 @@
 
 void Field::initialize(){
     Spot spot;
-    List<Spot> list;
+    List<Spot> row;
+    for ( int j = 0 ; j < collumnsNum ; ++j ) {
+	row.addElement( spot );
+    }
+
     for ( int i = 0 ; i < rowsNum ; ++i ) {
-        rows.addElement( list );
-        for ( int j = 0 ; j < collumnsNum ; ++j ) {
-            rows[0].addElement( spot );
-        }
+        rows.addElement( row );
     }
 }
 

@@ -28,7 +28,21 @@ private:
                 addElement(temp->object);
                 temp = temp->next;
             }
+	    reverseTheOrder();
         }
+
+	void reverseTheOrder(){
+	    Element * prev = nullptr;
+	    Element * temp = head;
+	    Element * next;
+	    while( temp ){
+		next = temp ->next;
+		temp ->next = prev;
+		prev = temp;
+		temp = next;
+	    }
+	    head = prev;
+	}
 
         void addElement(const Type &obj) {
             Element *newEl = new Element;
